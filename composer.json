@@ -1,0 +1,15 @@
+{
+    "name": "iakio/laravel-dbstart",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ISHIDA Akio",
+            "email": "iakio.monospacenet@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "iakio\\dbstart\\": "src/"
+        }
+    }
+}
