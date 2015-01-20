@@ -11,5 +11,10 @@
         "psr-4": {
             "iakio\\dbstart\\": "src/"
         }
+    },
+    "require-dev": {
+        "illuminate/console": "~4.2",
+        "illuminate/config": "~4.2",
+        "phpspec/phpspec": "~2.1"
     }
 }

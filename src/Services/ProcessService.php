@@ -1,17 +1,22 @@
-<?php namespace iakio\dbstart\Commands;
+<?php namespace iakio\dbstart\Services;
 
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Process\ProcessBuilder;
+use Symfony\Component\Console\Output\OutputInterface;
 
 class ProcessService {
 
-    public function run(array $command)
+    public function run(array $command, OutputInterface $output = null)
     {
+        if ($output === null) {
+            $output = new ConsoleOutput();
+        }
         $process = ProcessBuilder::create($command);
-        $process->getProcess()->mustRun(function ($type, $buffer) {
+        $process->getProcess()->mustRun(function ($type, $buffer) use ($output) {
             if ($type === "err") {
-                $this->error($buffer);
+                $output->writeln("<error>$buffer</error>");
             } else {
-                $this->info($buffer);
+                $output->writeln($buffer);
             }
         });
     }

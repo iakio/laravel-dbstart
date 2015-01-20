@@ -6,9 +6,9 @@ class InitCommand extends BaseCommand {
 
     public function fire()
     {
-        $pgdata = storage_path() . DIRECTORY_SEPARATOR . "data";
+        $pgdata = $this->config->get("dbstart.path");
         $command = ["initdb", "-D", $pgdata];
 
-        $this->runProcess($command);
+        $this->process->run($command, $this->output);
     }
 }

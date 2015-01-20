@@ -6,9 +6,9 @@ class StartCommand extends BaseCommand {
 
     public function fire()
     {
-        $pgdata = storage_path() . DIRECTORY_SEPARATOR . "data";
+        $pgdata = $this->config->get("dbstart.path");
         $command = ["pg_ctl", "start", "-w", "-D", $pgdata];
 
-        $this->runProcess($command);
+        $this->process->run($command, $this->output);
     }
 }

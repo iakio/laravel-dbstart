@@ -15,6 +15,6 @@ class CreateDbCommand extends BaseCommand {
             $command[] = $this->config->get("$key.db_user");
         }
         $command[] = $this->config->get("$key.database");
-        $this->runProcess($command);
+        $this->process->run($command, $this->output);
     }
 }

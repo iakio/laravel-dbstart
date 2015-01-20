@@ -1,0 +1,4 @@
+suites:
+    my_suite:
+        namespace: iakio\dbstart
+        psr4_prefix: iakio\dbstart
