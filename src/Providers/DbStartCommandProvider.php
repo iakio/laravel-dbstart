@@ -17,8 +17,8 @@ class DbStartCommandProvider extends ServiceProvider{
             'iakio\dbstart\Commands\StartCommand',
             'iakio\dbstart\Commands\CreateDbCommand',
         ]);
-        config([
-            "dbstart.path" => storage_path() . DIRECTORY_SEPARATOR . "data"
-        ]);
+        $this->app->make('config')->set(
+            "dbstart.path", storage_path() . DIRECTORY_SEPARATOR . "data"
+        );
     }
 }
