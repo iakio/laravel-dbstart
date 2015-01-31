@@ -12,7 +12,7 @@ class CreateDbCommand extends BaseCommand {
         $key = "database.connections.$default";
         if ($this->config->get("$key.username")) {
             $command[] = "-O";
-            $command[] = $this->config->get("$key.db_user");
+            $command[] = $this->config->get("$key.username");
         }
         $command[] = $this->config->get("$key.database");
         $this->process->run($command, $this->output);
